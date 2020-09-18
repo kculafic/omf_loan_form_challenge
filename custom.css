@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto';
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+label {
+    color: #5c5e61;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.btn {
+    border-radius: 0 !important;
+    font-size: 12px;
+    background-color: #26a69a;
+    border-color: #26a69a;
+}
+
+.btn:hover {
+    border-radius: 0 !important;
+    font-size: 12px;
+    background-color: #00897b;
+    border-color: #00897b;
+}
+
+.card {
+    border-radius: 0;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+.form-control {
+    border: 0;
+}
+
+.form-group {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.radio-label {
+    font-size: 12px;
+    font-weight: normal;
+    padding-top: 3px;
+}
+
+.left-panel {
+    border: none;
+}
+
+.right-panel {
+    background-color: #f0f5fa;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}
+
+.right-panel-container {
+    height: 100%;
+    justify-content: center;
+}
+
+.right-panel-text {
+    max-width: 80%;
+}
+.right-panel-text p {
+    text-align: center;
+    padding: 10px 0px 2px;
+    font-size: 14px;
+    /* font-weight: medium; */ 
+    font-weight: 600;
+}

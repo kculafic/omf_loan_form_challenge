@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-form-validation/dist/jquery.form-validation.min.js"></script>
+    <script src="app.js"></script>
+
+    <title>OneMain Technical Challenge</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>One-time Loan Payment</h1>
+            </div>
+            <div class="col-md-12">
+                <h3>Fill out the form below to complete your payment.</h3>
+            </div>
+        </div>
+
+        <div><br></div>
+
+        <form method="POST" id="loan-payment-form">
+            <div class="card col-md-8">
+                <div class="row">
+                    <div class="col-md-12 border-bottom">
+                        <div class="form-group">
+                            <label for="loanAccountNumber">Loan Account Number</label>
+                            <input type="text" class="form-control" id="loanAccountNumber" data-validator-label="Loan Account Number" data-validator="required|integer">
+                            <div class="form-control-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="card left-panel col-md-7">
+                        <div class="border-bottom" id="account-type-radio">
+                            <div class="form-group">
+                                <label for="accountType" style="width: 100%">Type of Account:</label>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="radioChecking" name="accountTypeRadios" class="custom-control-input" value="checking" checked>
+                                    <label class="custom-control-label radio-label" for="radioChecking">Checking</label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="radioDebit" name="accountTypeRadios" class="custom-control-input" value="debit">
+                                    <label class="custom-control-label radio-label" for="radioDebit">Debit Card</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="" id="checking-form-panel">
+                            <div class="border-bottom ">
+                                <div class="form-group">
+                                    <label for="routingNumber">Routing Number</label>
+                                    <input type="text" class="form-control" id="routingNumber" data-validator-label="Routing Number" data-validator="required|max:9|integer">
+                                    <div class="form-control-feedback"></div>
+                                </div>
+                            </div>
+
+                            <div class="border-bottom ">
+                                <div class="form-group">
+                                    <label for="bankAccountNumber">Bank Account Number</label>
+                                    <input type="text" class="form-control" id="bankAccountNumber" name="bankAccNum" data-validator-label="Bank Account Number" data-validator="required|integer">
+                                    <div class="form-control-feedback"></div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="form-group">
+                                    <label for="confirmBankAccountNumber">Confirm Bank Account Number</label>
+                                    <input type="text" class="form-control" id="confirmBankAccountNumber" data-validator-label="Confirm Bank Account Number" data-validator="required|integer|same:bankAccNum">
+                                    <div class="form-control-feedback"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="" id="debit-form-panel" style="display:none">
+                            <div class="border-bottom ">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <input type="text" class="form-control" id="cardNumber" data-validator-label="Card Number" data-validator="required|integer">
+                                    <div class="form-control-feedback"></div>
+                                </div>
+                            </div>
+
+                            <div class="border-bottom ">
+                                <div class="form-group">
+                                    <label for="nameOnCard">Name On Card</label>
+                                    <input type="text" class="form-control" id="nameOnCard" data-validator-label="Name On Card" data-validator="required">
+                                    <div class="form-control-feedback"></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 border-right">
+                                    <div class="form-group">
+                                        <label for="expirationDate">Expiration Date</label>
+                                        <input type="month" class="form-control" id="expirationDate" data-validator-label="Expiration Date" data-validator="required">
+                                        <div class="form-control-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" data-validator-label="CVV" data-validator="required|size_numeric:3|integer">
+                                        <div class="form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card right-panel col-md-5 " id="checking-img-panel">
+                        <div class="">
+                            <div class="right-panel-container row">
+                                <div class="col-md-12 right-panel-text">
+                                    <p>Where can I find the routing and account number?</p>
+                                </div>
+                                <img src="src/check.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card right-panel col-md-5 " id="debit-img-panel" style="display: none">
+                        <div>
+                            <div class="right-panel-container row">
+                                <div class="col-md-12 right-panel-text">
+                                    <p>Where can I find the CVV number?</p>
+                                </div>
+                                <img src="src/cvv.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row"><br></div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <button type="submit" id="submit_button" name="button" class="btn btn-primary btn-lg btn-block">MAKE PAYMENT</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
